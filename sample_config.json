@@ -1,0 +1,8 @@
+{
+  "start_date": "2022-01-01 00:00:00",
+  "host": "host(localhost)",
+  "user": "sysdba",
+  "password": "------",
+  "port": 3050,
+  "dbname": "/path/to/firebird_db_file.fdb"
+}
