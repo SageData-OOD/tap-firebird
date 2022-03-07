@@ -4,5 +4,5 @@
   "user": "sysdba",
   "password": "------",
   "port": 3050,
-  "dbname": "/path/to/firebird_db_file.fdb"
+  "database": "/path/to/firebird_db_file.fdb"
 }
