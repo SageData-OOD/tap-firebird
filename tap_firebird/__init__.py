@@ -15,7 +15,7 @@ from singer.catalog import Catalog, CatalogEntry
 from singer.schema import Schema
 
 # from tap_Firebird import resolve
-import resolve
+from tap_firebird import resolve
 
 LOGGER = singer.get_logger()
 
@@ -160,7 +160,7 @@ def do_discover(conn):
 def schema_for_column(c):
     '''Returns the Schema object for the given Column.'''
     column_type = c['type'].lower()
-    column_nullable = c['nullable']
+    column_nullable = c['nullable'] != 1
     inclusion = 'available'
     result = Schema(inclusion=inclusion)
 
@@ -196,7 +196,7 @@ def schema_for_column(c):
                         description='Unsupported column type {}'
                         .format(column_type))
 
-    if column_nullable == 1:
+    if column_nullable:
         result.type = ['null', result.type]
 
     return result
